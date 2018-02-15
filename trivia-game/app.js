@@ -24,36 +24,38 @@ const cards = [
   {
     question: "What zodiac animal represents this year?",
     choices: ["Sheep", "Dragon ", "Tiger ", "Dog "],
-    answer: 3,// option d,
+    answer: 3,
     image:"http://www.chinesenewyearday.com/Images/Dog/SnoopyNewYear2018.PNG"
   },
   {
     question: "The Chinese New Year celebration lasts how many days??",
     choices: ["1 days", "7 days", "12 days", "15 days"],
-    answer: 2,// option c,
+    answer: 2,
     image:"http://www.creativechinese.com/wp-content/uploads/2016/12/maxresdefault.jpg"
   },
   {
     question: "What is the first sign of the Zodiac?",
     choices: ["Dragon", "Rat", "Tiger", "Dog"],
-    answer: 1, // option b
+    answer: 1,
     image:""
   },
   {
     question: "What zodiac is this year?",
     choices: ["Sheep", "Monkey", "Dog", "Snake"],
-    answer: 2 // option c
+    answer: 2,
+    image:""
   },
   {
     question: "When is Lunar New Year this year?",
     choices: ["January", "Febuary", "March", "April"],
-    answer: 1 // option b
+    answer: 1,
+    image:""
   },
   {
     question: "What animal is not part of the zodiac?",
     choices: ["Rabbit", "Rooster", "Dog", "Cat"],
-    answer: 3, // option d
-    image:"https://www.google.com/search?tbm=isch&q=first+chinese+zodiac&spell=1&sa=X&ved=0ahUKEwitr6jIkqfZAhWENd8KHQbUDHoQBQglKAA&biw=1666&bih=833&dpr=2#imgrc=QeorNHAN-0TglM:"
+    answer: 3,
+    image:"https://pm1.narvii.com/6555/0fe8f1a110dc50db8a32103445b8574740a7a09a_hq.jpg"
   },
 ];
 
@@ -63,11 +65,12 @@ let score = 0;
 const scoreLabel = document.querySelector(".score-label");
 const questionPrompt = document.querySelector(".question-prompt");
 const questionNumber = document.querySelector(".question-number");
+const questionImage = document.querySelector(".question-image");
 const boxes = document.querySelectorAll(".box");
 const boxPrompts = document.querySelectorAll(".box-prompt");
 const nextBtn = document.querySelector(".next-btn");
 const previousBtn = document.querySelector(".previous-btn");
-const questionImage = document.querySelector("img");
+
 
 const getCard = index => {
   return cards[index];
@@ -110,7 +113,7 @@ const displayScore = () => {
 const displayCard = card => {
   questionPrompt.innerText = card.question;
   questionNumber.innerText = current + 1;
-  questionImage.setAttribute('src', card.image);
+  questionImage.setAttribute('style', `background-image: url('${card.image}');`);
 
   // assign the question prompts
   for (let i = 0; i < boxPrompts.length; i++) {

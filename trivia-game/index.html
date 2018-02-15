@@ -13,9 +13,11 @@
 		<h2>Score: <span class="score-label"></span></h2>
 
 		<div class="question">
-			<span class="question-number"></span>.
-			<span class="question-prompt"></span>
-			<img src="" class="question-image">
+			<div>
+				<span>Question <span class="question-number"></span>.</span>
+				<span class="question-prompt"></span>
+			</div>
+			<div class="question-image"></div>
 		</div>
 
 		<div class="boxes">
@@ -37,8 +39,10 @@
 			</div>
 		</div>
 
-		<button class="previous-btn">Previous Question</button>
-		<button class="next-btn">Next Question</button>
+		<div class="nav">
+			<button class="nav-btn previous-btn">Previous Question</button>
+			<button class="nav-btn next-btn">Next Question</button>
+		</div>
 
 		<!-- scripts -->
 		<script src="app.js"></script>
