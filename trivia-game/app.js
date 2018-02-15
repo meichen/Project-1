@@ -1,26 +1,43 @@
 //Make questions and answers appear
 // //Make Scores appear
 // //Intiate button
-
 // if answer= a
 // return("Corret!")
-
 // var Questions = "";
-
 // for (var i = 0; i < string.length; i++){
 // 	console.log("hi");
 
 // }
 const cards = [
   {
+    question: "When is Chinese New Year 2018?",
+    choices: ["January 1st", "Febuary 16th", "March 17th", "April 1st"],
+    answer: 2,// option c,
+    image:"https://media.giphy.com/media/3o6nV6mB7WHDfy4W2Y/giphy.gif"
+  },
+  {
     question: "How many signs make up the Zodiac?",
     choices: ["7 signs", "10 signs", "12 signs", "15 signs"],
-    answer: 2 // option c
+    answer: 2,// option c,
+    image:"https://media.giphy.com/media/26Ffd2dWoH22B0uPu/giphy.gif"
+  },
+  {
+    question: "What zodiac animal represents this year?",
+    choices: ["Sheep", "Dragon ", "Tiger ", "Dog "],
+    answer: 3,// option d,
+    image:"http://www.chinesenewyearday.com/Images/Dog/SnoopyNewYear2018.PNG"
+  },
+  {
+    question: "The Chinese New Year celebration lasts how many days??",
+    choices: ["1 days", "7 days", "12 days", "15 days"],
+    answer: 2,// option c,
+    image:"http://www.creativechinese.com/wp-content/uploads/2016/12/maxresdefault.jpg"
   },
   {
     question: "What is the first sign of the Zodiac?",
     choices: ["Dragon", "Rat", "Tiger", "Dog"],
-    answer: 1 // option b
+    answer: 1, // option b
+    image:""
   },
   {
     question: "What zodiac is this year?",
@@ -35,8 +52,9 @@ const cards = [
   {
     question: "What animal is not part of the zodiac?",
     choices: ["Rabbit", "Rooster", "Dog", "Cat"],
-    answer: 3 // option d
-  }
+    answer: 3, // option d
+    image:"https://www.google.com/search?tbm=isch&q=first+chinese+zodiac&spell=1&sa=X&ved=0ahUKEwitr6jIkqfZAhWENd8KHQbUDHoQBQglKAA&biw=1666&bih=833&dpr=2#imgrc=QeorNHAN-0TglM:"
+  },
 ];
 
 let current = 0;
@@ -46,8 +64,10 @@ const scoreLabel = document.querySelector(".score-label");
 const questionPrompt = document.querySelector(".question-prompt");
 const questionNumber = document.querySelector(".question-number");
 const boxes = document.querySelectorAll(".box");
+const boxPrompts = document.querySelectorAll(".box-prompt");
 const nextBtn = document.querySelector(".next-btn");
 const previousBtn = document.querySelector(".previous-btn");
+const questionImage = document.querySelector("img");
 
 const getCard = index => {
   return cards[index];
@@ -90,10 +110,11 @@ const displayScore = () => {
 const displayCard = card => {
   questionPrompt.innerText = card.question;
   questionNumber.innerText = current + 1;
+  questionImage.setAttribute('src', card.image);
 
   // assign the question prompts
-  for (let i = 0; i < boxes.length; i++) {
-    boxes[i].innerText = card.choices[i];
+  for (let i = 0; i < boxPrompts.length; i++) {
+    boxPrompts[i].innerText = card.choices[i];
   }
 };
 
@@ -113,6 +134,7 @@ const checkAnswer = answer => {
   if (answer === card.answer) {
     score += 1;
     displayCard(nextCard());
+    return("Correct!")
   } else {
     console.log("wrong");
   }
@@ -138,3 +160,4 @@ const init = () => {
 };
 
 init();
+
