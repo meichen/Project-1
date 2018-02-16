@@ -12,13 +12,19 @@ const cards = [
   {
     question: "When is Chinese New Year 2018?",
     choices: ["January 1st", "Febuary 16th", "March 17th", "April 1st"],
-    answer: 2, // option c,
+    answer: 1,
     image: "https://media.giphy.com/media/3o6nV6mB7WHDfy4W2Y/giphy.gif"
+  },
+  {
+    question: "The many days does the Chinese New Year celebration last?",
+    choices: ["1 day", "7 days", "12 days", "15 days"],
+    answer: 3,
+    image: "https://media.giphy.com/media/26n60rak5faAMfoQ0/giphy.gif"
   },
   {
     question: "How many signs make up the Zodiac?",
     choices: ["7 signs", "10 signs", "12 signs", "15 signs"],
-    answer: 2, // option c,
+    answer: 2,
     image: "https://media.giphy.com/media/26Ffd2dWoH22B0uPu/giphy.gif"
   },
   {
@@ -28,37 +34,41 @@ const cards = [
     image: "http://www.chinesenewyearday.com/Images/Dog/SnoopyNewYear2018.PNG"
   },
   {
-    question: "The Chinese New Year celebration lasts how many days??",
-    choices: ["1 days", "7 days", "12 days", "15 days"],
-    answer: 2,
-    image:
-      "http://www.creativechinese.com/wp-content/uploads/2016/12/maxresdefault.jpg"
+    question: "What do children typically get for Chinese New Year?",
+    choices: ["Presents", "Candy", "Fruit", "Red Envelope"],
+    answer: 3,
+    image:"https://www.google.com/search?rlz=1C5CHFA_enUS764US766&biw=1666&bih=833&tbm=isch&sa=1&ei=XuaGWr-XBZSgjQODtLqYAg&q=chinese+new+year+red+envelope+kids&oq=chinese+new+year+red+envelope+kids&gs_l=psy-ab.3...74035.75423.0.75701.7.7.0.0.0.0.120.685.0j6.6.0....0...1c.1.64.psy-ab..1.1.119...0.0.2xgXdzSUVM8#imgrc=sktpou0EguC1DM:"
   },
   {
     question: "What is the first sign of the Zodiac?",
     choices: ["Dragon", "Rat", "Tiger", "Dog"],
     answer: 1,
-    image: ""
+    image: "https://media.giphy.com/media/l4Ep6eS9Uc1aL1T56/giphy.gif"
   },
   {
-    question: "What zodiac is this year?",
-    choices: ["Sheep", "Monkey", "Dog", "Snake"],
-    answer: 2,
-    image: ""
+    question: "What are some meaning popular dishes eaten at Chinese New Year?",
+    choices: ["Fish", "Year Cake", "Dumplings", "All of the above"],
+    answer: 3,
+    image: "http://www.creativechinese.com/wp-content/uploads/2016/12/maxresdefault.jpg"
   },
   {
-    question: "When is Lunar New Year this year?",
-    choices: ["January", "Febuary", "March", "April"],
+    question: "What is a another name for Chinese New Year?",
+    choices: ["New Festival", "Spring Festival", "Thanksgiving", "Food Festival"],
     answer: 1,
-    image: ""
+    image: "https://media.giphy.com/media/3o6nUT3MQhiebCF9Ys/giphy.gif"
   },
   {
     question: "What animal is not part of the zodiac?",
     choices: ["Rabbit", "Rooster", "Dog", "Cat"],
     answer: 3,
-    image:
-      "https://pm1.narvii.com/6555/0fe8f1a110dc50db8a32103445b8574740a7a09a_hq.jpg"
-  }
+    image:"https://pm1.narvii.com/6555/0fe8f1a110dc50db8a32103445b8574740a7a09a_hq.jpg"
+  },
+  {
+    question: "THE END. I wish you:",
+    choices: ["Good Health", "Survive GA", "Get an AWESOME Job!", "Get $RICH$ -Gong Xi Fa Cai!"],
+    answer: 3,
+    image: "https://media.giphy.com/media/6nlud1WPoprGg/giphy.gif"
+  },
 ];
 
 let current = 0;
@@ -117,7 +127,7 @@ const displayCard = card => {
   questionImage.setAttribute(
     "style",
     `background-image: url('${card.image}');`
-  );
+);
 
   // assign the question prompts
   for (let i = 0; i < boxPrompts.length; i++) {
@@ -141,8 +151,10 @@ const checkAnswer = answer => {
   if (answer === card.answer) {
     score += 1;
     displayCard(nextCard());
+    alert("Correct!");
     return "Correct!";
   } else {
+    alert(`Wrong!, the right answer is ${card.answer}`);
     console.log("wrong");
   }
 };

@@ -44,10 +44,9 @@ h2 {
 .question-prompt {
   color: gold;
 }
-.question-number {
+.question-number-label {
   color: gold;
   font-weight: bold;
-
 }
 .question-image {
   display: flex;
