@@ -8,6 +8,7 @@
 // 	console.log("hi");
 
 // }
+// Remove all this commented code out from deployed branches
 const cards = [
   {
     question: "When is Chinese New Year 2018?",
@@ -38,7 +39,7 @@ const cards = [
     choices: ["Presents", "Candy", "Fruit", "Red Envelope"],
     answer: 3,
     image:"https://www.google.com/search?rlz=1C5CHFA_enUS764US766&biw=1666&bih=833&tbm=isch&sa=1&ei=XuaGWr-XBZSgjQODtLqYAg&q=chinese+new+year+red+envelope+kids&oq=chinese+new+year+red+envelope+kids&gs_l=psy-ab.3...74035.75423.0.75701.7.7.0.0.0.0.120.685.0j6.6.0....0...1c.1.64.psy-ab..1.1.119...0.0.2xgXdzSUVM8#imgrc=sktpou0EguC1DM:"
-  },
+  }, // This image isn't working. Make sure you get the correct image
   {
     question: "What is the first sign of the Zodiac?",
     choices: ["Dragon", "Rat", "Tiger", "Dog"],
@@ -70,7 +71,7 @@ const cards = [
     image: "https://media.giphy.com/media/6nlud1WPoprGg/giphy.gif"
   },
 ];
-
+// Good job setting up your questions. An even better practice is to put these into a separate js file so the functionality is less cluttered.
 let current = 0;
 let score = 0;
 
@@ -82,7 +83,7 @@ const boxes = document.querySelectorAll(".box");
 const boxPrompts = document.querySelectorAll(".box-prompt");
 const nextBtn = document.querySelector(".next-btn");
 const previousBtn = document.querySelector(".previous-btn");
-
+// Nice job using const and let and keeping your global variables near the top of your code
 const getCard = index => {
   return cards[index];
 };
@@ -93,7 +94,7 @@ const getCurrentCard = () => {
 
 const nextCard = () => {
   // only increment if we are not at the end of the array
-  if (current + 1 <= cards.length) {
+  if (current < cards.length) {
     current++;
   } else {
     // loop around to the first card in the array
@@ -102,11 +103,12 @@ const nextCard = () => {
 
   // return the new card to display
   return getCurrentCard();
+  // You could just do `return getCard(current)` and avoid the mediator `getCurrentCard` function
 };
 
 const previousCard = () => {
   // only decrement if we are not at the beginning of the array
-  if (current - 1 >= 0) {
+  if (current > 0) {
     current--;
   } else {
     // loop around to the last card in the array
@@ -115,24 +117,25 @@ const previousCard = () => {
 
   // return the new card to display
   return getCurrentCard();
+  // Same here
 };
 
 const displayScore = () => {
   scoreLabel.innerText = score;
 };
 
-const displayCard = card => {
+const displayCard = card => { // Good way to update text/images
   questionPrompt.innerText = card.question;
   questionNumber.innerText = current + 1;
   questionImage.setAttribute(
     "style",
     `background-image: url('${card.image}');`
-);
+  );
 
   // assign the question prompts
   for (let i = 0; i < boxPrompts.length; i++) {
     boxPrompts[i].innerText = card.choices[i];
-  }
+  } // Could try a forEach loop here too!
 };
 
 const onNextBtnClickHandler = () => {
@@ -154,8 +157,8 @@ const checkAnswer = answer => {
     alert("Correct!");
     return "Correct!";
   } else {
-    alert(`Wrong!, the right answer is ${card.answer}`);
-    console.log("wrong");
+    alert(`Wrong!, the right answer is ${card.answer}`); // Could do it this way too: `card.choices[card.answer]` to actually show the user the answer
+    console.log("wrong"); // Remove console logs from deployed branches
   }
 };
 
@@ -179,3 +182,9 @@ const init = () => {
 };
 
 init();
+// Good way to kick things off
+
+// Great job on the javascript. Your app really came together and functions really well and intuitively.
+// Function names are semantic so your code is intuitive to follow.
+// You made good use of functional programming and keeping each function small and precise. 
+// Comments are nice too, keep up the good work!
